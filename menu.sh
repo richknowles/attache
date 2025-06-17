@@ -34,9 +34,9 @@ function attache_start
     case 1; echo "🐟 Fish only (no-op)"
     case 2; attache_plusx
     case 3
-      if read_confirm "Activate GF Mode"; then
-        bash ~/.dotfiles/attache/gfmode.sh | lolcat
-        sudo mpg123 ~/sounds/moan.mp3
+	  if read_confirm "Activate X Mode"; then
+		bash ~/.dotfiles/attache/x_mode.sh | lolcat
+	    sudo mpg123 ~/.dotfiles/attache/sounds/moan.mp3
       end
     case 4; attache_colors
     case 5; attache_godmode

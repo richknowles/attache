@@ -18,7 +18,7 @@ fi
 cd "$HOME/.dotfiles"
 stow fish attache
 
-curl -s https://attache.richknowles.com/menu.sh > attache/menu.sh
+curl -sL https://raw.githubusercontent.com/richknowles/attache/main/attache/menu.sh > attache/menu.sh
 chmod +x attache/menu.sh
 
 echo "✅ Installed — restart your Fish shell."
