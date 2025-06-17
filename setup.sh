@@ -4,13 +4,15 @@ set -e
 echo "🔧 Cloning Attache..."
 git clone https://github.com/richknowles/attache.git "$HOME/.dotfiles"
 
-echo "📦 Installing deps..."
-if [ -f /etc/debian_version ]; then
-  sudo apt update && sudo apt install -y fish stow curl jq speedtest-cli htop
-elif [ -f /etc/fedora-release ]; then
-  sudo dnf install -y fish stow curl jq speedtest-cli htop
-elif [ -f /etc/arch-release ]; then
-  sudo pacman -Syu --noconfirm fish stow curl jq speedtest-cli htop
+echo "📦 Installing dependencies..."
+if command -v brew >/dev/null; then
+  echo "Using Homebrew"
+  brew update
+  brew install fish stow curl jq speedtest-cli htop lolcat telnet mpg123
+else
+  echo "❌ Homebrew not found. Please install it and rerun:"
+  echo '/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"'
+  exit 1
 fi
 
 cd "$HOME/.dotfiles"
